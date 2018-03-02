@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ggy.dao.EmpMapper">
+	<resultMap type="Emp" id="empBean">
+		<id column="empid" property="empid" />
+		<result column="ename" property="ename" />
+		<result column="egender" property="egender" />
+		<result column="eage" property="eage" />
+		<result column="ephone" property="ephone" />
+		
+	</resultMap>
+	<resultMap extends="empBean" id="empBeanS"
+		type="Emp">
+		<result column="dname" property="dname" />
+		</resultMap>
+
+	<!-- 获取所有雇员 -->
+	<select id="showEmps" resultMap="empBeanS">
+		select 
+		e.empid,e.ename,e.egender,e.eage,e.ephone, 
+		(SELECT DNAME FROM DEPT WHERE DEPTID = e.deptid) dname from  emp e 
+	
+	</select>
+</mapper>  

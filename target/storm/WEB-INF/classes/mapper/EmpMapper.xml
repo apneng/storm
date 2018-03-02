@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ggy.dao.EmpMapper">
+	<resultMap type="Emp" id="empBean">
+		<id column="empid" property="empid" />
+		<result column="ename" property="ename" />
+		<result column="egender" property="egender" />
+		<result column="eage" property="eage" />
+		<result column="ephone" property="ephone" />
+		<result column="deptid" property="deptid" />
+
+		<!-- 多对一的关系 -->
+		<!-- property: 指的是属性的值, javaType：指的是属性的类型 -->
+		<association property="dept" javaType="Dept">
+			<id column="deptid" property="deptid" />
+			<result column="dname" property="dname" />
+
+		</association>
+	</resultMap>
+
+	<!-- 根据id查询emp, 关联将dept查询出来 -->
+	<select id="findEmpById" parameterType="integer" resultMap="empBean">
+		select e.*, d.* from dept d, emp e where e.deptid = d.deptid and
+		e.empid = #{empid}
+	</select>
+	<!-- 获取所有雇员 -->
+	<select id="showEmps" resultMap="empBean">
+		select e.*, d.* from dept d, emp
+		e where e.deptid = d.deptid
+	</select>
+	<!-- 添加雇员 -->
+	<insert id="addEmp" parameterType="Emp">
+		Insert into emp
+		(ename,egender,eage,ephone,deptid)
+		values(#{ename},#{egender},#{eage},#{ephone},#{deptid})
+	</insert>
+	<!-- 删除雇员 -->
+	<delete id="deleteEmp" parameterType="Integer">
+		delete from emp where
+		empid=#{empid}
+	</delete>
+	<!-- 修改雇员信息 -->
+	<update id="updateEmp" parameterType="Emp">
+		update emp set
+		ename=#{ename},egender=#{egender},eage=#{eage},ephone=#{ephone},deptid=#{deptid}
+		where empid=#{empid};
+	</update>
+	<!-- 关键字搜索 -->
+	<select id="search" parameterType="String" resultMap="empBean">
+		SELECT
+		e.*,d.* from emp e INNER JOIN dept d on e.deptid=d.deptid
+		where
+		e.eage=#{key} or e.ephone=#{key} or e.ename like CONCAT('%', #{key},
+		'%') or d.dname like CONCAT('%', #{key}, '%');
+	</select>
+</mapper>  

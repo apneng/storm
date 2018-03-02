@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="swd" default="gen-mybatis" basedir=".">
+    <description>fzba</description>
+    <property name="config.dir"   value="generatorConfig.xml" />
+    <property name="bin.dir"   value="webapp/WEB-INF/classes" />
+	<property name="lib.dir"   value="E:/maven-repo" />
+
+    <!-- classpath definition -->
+    <path id="build-classpath">
+         <fileset dir="${lib.dir}">
+            <include name="**/*.jar" />
+        </fileset>
+		<pathelement path="${bin.dir}" />
+     </path>
+	  
+    <!-- generate action script files -->
+    <target name="gen-mybatis" description="generate gen-mybatis ,bean dao sqlmap">
+        <taskdef name="mbgenerator" classname="org.mybatis.generator.ant.GeneratorAntTask">
+            <classpath refid="build-classpath" />
+        </taskdef>
+    	<mbgenerator overwrite="true" configfile="generatorConfig.xml" verbose="false">
+	        <propertyset>
+	        	<propertyref name="generatoed.source.dir"/>
+	        </propertyset>
+    	</mbgenerator>
+    </target>
+</project>

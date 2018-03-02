@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ggy.dao.DeptMapper">
+
+	<resultMap type="Dept" id="deptBean">
+		<id column="deptid" property="deptid" />
+		<result column="dname" property="dname" />
+		<!-- 一对多的关系 -->
+		<!-- property: 指的是集合属性的值, ofType：指的是集合中元素的类型 -->
+		<collection property="emps" ofType="Emp">
+			<id column="empid" property="empid" />
+			<result column="ename" property="ename" />
+			<result column="egender" property="egender" />
+			<result column="eage" property="eage" />
+			<result column="ephone" property="ephone" />
+		</collection>
+	</resultMap>
+
+	<!-- 根据id查询dept, 关联将emp查询出来 -->
+	<select id="findDeptById" parameterType="integer" resultMap="deptBean">
+		select e.*,d.* from dept d inner join emp e on e.deptid = d.deptid and d.deptid
+		= #{deptid}
+	</select>
+	<!-- 获取全部部门 -->
+	<select id="showDept" resultMap="deptBean">
+		select * from dept
+	</select>
+</mapper>  
