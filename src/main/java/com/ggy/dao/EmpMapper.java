@@ -1,6 +1,7 @@
 package com.ggy.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -16,7 +17,7 @@ public interface EmpMapper {
 	/**获取所有雇员信息
 	 * @return
 	 */
-	public List<Emp> showEmps();
+	public List<Map<String, String>> showEmps();
 
 	
 }

@@ -16,7 +16,8 @@ public class EmpTest {
 	@Test
 	public void testShowEmp(){
 		String str = empCtrl.showEmps();
-		System.out.println(str);
+//		System.out.println(str);
+		
 		
 	}
 

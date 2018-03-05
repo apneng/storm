@@ -1,6 +1,7 @@
 package com.ggy.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,8 @@ public class EmpService {
 	@Autowired
 	private EmpMapper empMapper;
 	
-	public List<Emp> showEmps(){
-		List<Emp> list = this.empMapper.showEmps();
-		return list;
+	public List<Map<String, String>> showEmps(){
+		return this.empMapper.showEmps();
 		
 	}
 

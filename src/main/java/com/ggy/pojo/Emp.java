@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author apneng 2017年10月26日上午9:53:41
  *
  */
-public class Emp extends Dept {
+public class Emp implements Serializable {
 	
 	private Integer empid;
 	private String ename;

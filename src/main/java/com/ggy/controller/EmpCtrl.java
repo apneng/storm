@@ -1,6 +1,7 @@
 package com.ggy.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
-import com.ggy.pojo.Emp;
 import com.ggy.service.EmpService;
 
 @Controller
@@ -20,25 +20,11 @@ public class EmpCtrl {
 	@ResponseBody
 	@RequestMapping("/showEmps")
 	public String showEmps(){
-		List<Emp> list = this.empService.showEmps();
+		List<Map<String, String>> list = this.empService.showEmps();
+		System.out.println(list.get(0).get("dname"));
 		String json = JSON.toJSONString(list);
 		System.out.println(json);
 		return json;
 	}
 	
-	@RequestMapping("/new")
-	public String newone(){
-		
-		return "new";
-	}
-	@RequestMapping("/list")
-	public String list(){
-		
-		return "list";
-	}
-	@RequestMapping("/login")
-	public String login(){
-		
-		return "login";
-	}
 }

@@ -30,11 +30,11 @@
 	</div>
 		<form action = "userCtrl/checkLogin.do" method ="post">
 			<li>
-				<input type="text" class="text" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}"><a href="#" class=" icon user"></a>
+				<input id="loginName" name="loginName" type="text" class="text" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}"><a href="#" class=" icon user"></a>
 			</li>
 				<div class="clear"> </div>
 			<li>
-				<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
+				<input type="password" id="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
 			</li>
 			<div class="clear"> </div>
 			<div class="submit">
