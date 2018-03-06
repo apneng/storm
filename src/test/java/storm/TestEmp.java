@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.ggy.controller.EmpCtrl;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring-mybatis.xml"})
-public class EmpTest {
+public class TestEmp {
 	@Autowired
 	private EmpCtrl empCtrl;
 	

@@ -17,8 +17,8 @@
 <script type="text/javascript"
 	src="${ctx }/jquery-easyui-1.5.3/jquery.easyui.min.js"></script>
 	
-<script type="text/javascript"
-	src="${ctx }/jsp/js/jquery-1.8.1.min.js"></script>
+<%-- <script type="text/javascript"
+	src="${ctx }/jsp/js/jquery-1.8.1.min.js"></script> --%>
 <script type="text/javascript"
 	src="${ctx }/jsp/list.js"></script>
 	
@@ -43,55 +43,19 @@
 
 	<div style="margin: 0 0;"></div>
 
-	<!-- <table class="easyui-datagrid" id="dg">
+
+     	<table id = "grid">
+
+		</table>
 		
-	</table> -->
-	<table class="easyui-datagrid" style="width:700px;height:250px"  
-        data-options="url:'showEmps.do',fitColumns:true,singleSelect:true">  
-    <thead>  
-        <tr>  
-            <th data-options="field:'empid',width:100">ID</th>  
-            <th data-options="field:'ename',width:100">姓名</th>  
-            <th data-options="field:'egender',width:100">性别</th>  
-            <th data-options="field:'eage',width:100">年龄</th>  
-            <th data-options="field:'dname',width:100">所属部门</th>  
-            <th data-options="field:'ephone',width:100,align:'right'">电话号码</th>  
-        </tr>  
-    </thead>  
-</table>
-	<!-- 添加雇员信息弹出窗口 开始 -->
-	<div id="w" class="easyui-window" title="添加新雇员"
-		data-options="iconCls:'icon-save',closed:true"
-		style="width: 400px; height: 300px; padding: 10px;">
-
-		<form action="add" method="post">
-			<p>
-				姓名:<input type="text" name="ename" />
-			</p>
-			<p>
-				性别:<input type="radio" name="egender" value="1" checked /> 男 <input
-					type="radio" name="egender" value="0" />女
-			</p>
-			<p>
-				年龄:<input type="text" name="eage" />
-			</p>
-			<p>
-				电话:<input type="text" name="ephone" />
-			</p>
-			<p>
-				部门:<select name="deptid">
-					<option>--请选择--</option>
-					<c:forEach items="${deptList }" var="deptList">
-						<option value="${deptList.deptid }">${deptList.dname }</option>
-					</c:forEach>
-				</select>
-			</p>
-			<p>
-				<input type="submit" value="添加" /> <input type="reset" value="重置" />
-		</form>
-
-	</div>
-	<!-- 添加雇员信息弹出窗口 结束-->
+	<shiro:hasPermission name="ALU:ALUMNI:MOD">
+		<div id="mod"></div>
+	</shiro:hasPermission>
+	
+	<shiro:hasPermission name="ALU:ALUMNI:DEL">
+		<div id="del"></div>
+	</shiro:hasPermission>
+	
 
 </body>
 </html>

@@ -28,7 +28,7 @@
 		<h1>登陆</h1>
 		 <div class="alert-close"> </div> 			
 	</div>
-		<form action = "userCtrl/checkLogin.do" method ="post">
+		<form action = "userCtrl/checkLogin.do" method ="post" >
 			<li>
 				<input id="loginName" name="loginName" type="text" class="text" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}"><a href="#" class=" icon user"></a>
 			</li>
@@ -38,9 +38,9 @@
 			</li>
 			<div class="clear"> </div>
 			<div class="submit">
-				<input type="submit" value="登陆" >
+				<input type="button" value="登陆" />
 				<h4><a href="#">忘记密码？</a></h4>
-				<h4><a href="#">注册</a></h4>
+				<h4><a href="register.jsp">注册</a></h4>
 						  <div class="clear">  </div>	
 			</div>
 				
