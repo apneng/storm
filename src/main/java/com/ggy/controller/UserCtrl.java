@@ -32,7 +32,7 @@ public class UserCtrl {
 //	登陆
 	@ResponseBody
 	@RequestMapping("checkLogin")
-	public BaseResultModel checkLogin(String userName,String password,boolean rememberMe, HttpServletRequest request)
+	public BaseResultModel checkLogin(String userName,String password,boolean rememberMe/*, HttpServletRequest request*/)
 		throws Exception{
 		DataModel model = new DataModel();
 		UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
@@ -45,8 +45,8 @@ public class UserCtrl {
 				model.setRtnCode(SysCode.RTN_CODE_SUCCESS);
 				model.setRtnMsg("登录成功!");
 				User user = (User) subject.getSession().getAttribute("loginUser");
-				String agent = request.getHeader("User-Agent");
-				String clientIp = request.getRemoteAddr();
+//				String agent = request.getHeader("User-Agent");
+//				String clientIp = request.getRemoteAddr();
 				model.setData(user);
 			} else {
 				model.setRtnCode(SysCode.RTN_CODE_FAIL);

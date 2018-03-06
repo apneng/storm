@@ -202,6 +202,12 @@
 		</dependency>
 
 		<!-- shiro包 结束 -->
+		<dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-core</artifactId>
+    <version>2.2.6</version>
+</dependency>
+		
 
 	</dependencies>
 	<build>

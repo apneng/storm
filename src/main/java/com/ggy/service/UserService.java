@@ -10,9 +10,13 @@ import com.ggy.pojo.User;
 public class UserService {
 	@Autowired
 	private UserMapper userMapper;
+	
 	public int signUp(User record) {
 		// TODO Auto-generated method stub
 		return this.userMapper.insert(record);
 	}
 
+	public User findUserByName(String userName){
+		return this.userMapper.findUserByName(userName);
+	}
 }

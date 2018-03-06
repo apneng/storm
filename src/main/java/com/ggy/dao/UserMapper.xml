@@ -165,4 +165,12 @@
       regIp = #{regip,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  
+    <select id="findUserByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where username = #{userName,jdbcType=VARCHAR}
+  </select>
 </mapper>
