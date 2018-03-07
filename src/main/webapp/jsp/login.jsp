@@ -11,48 +11,32 @@
 <head>
 <base href="<%=basePath%>">
 <title>登陆页</title>
-<link href="jsp/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<!-- -->
-<script>var __links = document.querySelectorAll('a');function __linkClick(e) { parent.window.postMessage(this.href, '*');} ;for (var i = 0, l = __links.length; i < l; i++) {if ( __links[i].getAttribute('data-t') == '_blank' ) { __links[i].addEventListener('click', __linkClick, false);}}</script>
-<script src="jsp/js/jquery-1.8.1.min.js"></script>
-
+ <script type="text/javascript"
+	src="jsp/js/jquery-1.8.1.min.js"></script>
 <script type="text/javascript"
 	src="jsp/login.js"></script>
 </head>
 <body>
-<!-- contact-form -->	
-<div class="message warning">
-<div class="inset">
-	<div class="login-head">
-		<h1>登陆</h1>
-		 <div class="alert-close"> </div> 			
+<div style="width: 700px;height: 400px;align:center;">
+	<div align="center">
+		<p>用户名：<input id = "userName" name = "userName" /></p>
+		<p>密码：<input id = "password" name = "password"  /></p>
+		<p><input type = "checkbox" id = "rememberMe" name = "rememberMe" checked = "checked"/>记住我</p>
+		<p><input type = "button" id = "btn_submit" value = "登陆" />&nbsp;&nbsp;&nbsp;<input type = "button" id ="btn_reset" value = "重置"/></p>
 	</div>
-		<form action = "userCtrl/checkLogin.do" method ="post" >
-			<li>
-				<input id="loginName" name="loginName" type="text" class="text" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}"><a href="#" class=" icon user"></a>
-			</li>
-				<div class="clear"> </div>
-			<li>
-				<input type="password" id="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
-			</li>
-			<div class="clear"> </div>
-			<div class="submit">
-				<input type="button" value="登陆" />
-				<h4><a href="#">忘记密码？</a></h4>
-				<h4><a href="register.jsp">注册</a></h4>
-						  <div class="clear">  </div>	
-			</div>
-				
-		</form>
-		</div>					
+	<hr/>
+	<form action = "userCtrl/ddd.do" method ="post">
+	<input name = "yonghu" id = "yonghu" />
+		<input type = "submit" id = "btn_anjian"value = "按键" />
+	</form>
+	<hr/>
+	<div align="center">
+	<h3>结果展示</h3>
+	<p align="left" id = "resultArea"></p>
+
+	
 	</div>
-	</div>
-	<div class="clear"> </div>
-<!--- footer --->
-<div class="footer">
-	<p>Copyright &copy; 2018.</p>
+
 </div>
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>

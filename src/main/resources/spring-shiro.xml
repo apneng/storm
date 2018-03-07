@@ -50,19 +50,24 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	    <!--对页面访问权限进行控制-->
 	    <property name="filterChainDefinitions">  
 	        <value>
+	        	/**/*.do = anon
+	        	/favicon.ico = anon
+	        	/jsp/list.jsp = authc
 	        	<!-- 拦截但开放的资源 anon -->
 	        	<!-- /pages/sys/homex.jsp = anon -->
-	        	/jsp/login.jsp = anon
+	       <!--  	/jsp/login.jsp = anon
 	        	/login.jsp = anon
+	        	/favicon.ico = anon
 				/sys/login.do = anon
 				/sys/logout.do = anon
 				/sysFile/*.do = anon
+				/**/controller/*.do = anon
 				/**/fb.* = anon
-				/*/ipt.do = anon	<!-- 防止360浏览器在导入的时候重定向 -->
+				/*/ipt.do = anon	防止360浏览器在导入的时候重定向
 				/**/test.* = anon
 				/ = authc
 				/**/*.jsp = authc
-				/**/*.do = authc
+				/**/*.do = authc -->
 	        </value>  
 	    </property>
 	</bean>  

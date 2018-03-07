@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
@@ -32,7 +33,7 @@ public class UserCtrl {
 //	登陆
 	@ResponseBody
 	@RequestMapping("checkLogin")
-	public BaseResultModel checkLogin(String userName,String password,boolean rememberMe/*, HttpServletRequest request*/)
+	public BaseResultModel checkLogin(String userName,String password,boolean rememberMe, HttpServletRequest request)
 		throws Exception{
 		DataModel model = new DataModel();
 		UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
@@ -84,6 +85,11 @@ public class UserCtrl {
 		return this.userServices.signUp(user);
 		
 	}
-	
+	@RequestMapping("ddd")
+	public String aa(@Param("yonghu") String yonghu){
+		System.out.println(yonghu);
+		return "new";
+		
+	}
 
 }

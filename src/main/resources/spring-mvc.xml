@@ -17,7 +17,10 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	<!-- 配置自动扫描包 -->
-	<context:component-scan base-package="com.ggy.*"/>
+	<!-- <context:component-scan base-package="com.ggy.*" >
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+	</context:component-scan> -->
+	 <context:component-scan base-package="com.ggy"/> 
 	<!-- 过滤静态资源 -->
 	<mvc:default-servlet-handler />
 	<mvc:resources location="/WEB-INF/assets/" mapping="/assets/**" />

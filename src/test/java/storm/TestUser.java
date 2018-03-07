@@ -14,7 +14,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.ggy.Model.BaseResultModel;
 import com.ggy.Model.DataModel;
 import com.ggy.controller.UserCtrl;
-import com.ggy.pojo.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration({"classpath:spring-mybatis.xml"})
@@ -55,7 +54,7 @@ public class TestUser {
 		String password = "123456";
 		boolean rememberMe = false ;
 		BaseResultModel model = new DataModel();
-		model = this.userCtrl.checkLogin(userName, password, rememberMe);
+		model = this.userCtrl.checkLogin(userName, password, rememberMe, null);
 		System.out.println(model.getRtnMsg());
 		
 	}
