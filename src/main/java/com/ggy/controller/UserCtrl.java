@@ -88,7 +88,7 @@ public class UserCtrl {
 	@RequestMapping("ddd")
 	public String aa(@Param("yonghu") String yonghu){
 		System.out.println(yonghu);
-		return "new";
+		return "list";
 		
 	}
 

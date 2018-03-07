@@ -39,7 +39,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	    <!-- 要求登录时的链接(可根据项目的URL进行替换),非必须的属性,默认会自动寻找Web工程根目录下的"/login.jsp"页面 -->  
 	    <property name="loginUrl" value="/jsp/login.jsp" />
 	    <!-- 登录成功后要跳转的连接(本例中此属性用不到,因为登录成功后的处理逻辑在LoginController里硬编码) -->  
-	    <!-- <property name="successUrl" value="/pages/sys/main"/> -->  
+	   <property name="successUrl" value="/jsp/list.jsp"/> 
 	    <!-- 用户访问未对其授权的资源时,所显示的连接 -->  
 	    <property name="unauthorizedUrl" value="/jsp/404.jsp"/> 
 	    <property name="filters">    
@@ -52,7 +52,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	        <value>
 	        	/**/*.do = anon
 	        	/favicon.ico = anon
-	        	/jsp/list.jsp = authc
+	        	
 	        	<!-- 拦截但开放的资源 anon -->
 	        	<!-- /pages/sys/homex.jsp = anon -->
 	       <!--  	/jsp/login.jsp = anon

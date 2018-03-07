@@ -31,7 +31,7 @@ $(document).ready(function() {
 				},
 //				dataType : "json",
 				success : function(data){
-					$("#resultArea").html(data);
+					$("#resultArea").html(htmlobj.responseText);
 				},
 				error : function(XMLHttpRequest, textStatus, errorThrown) {
 					$("#resultArea").html(textStatus);

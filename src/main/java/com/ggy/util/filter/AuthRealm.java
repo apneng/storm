@@ -37,7 +37,7 @@ public UserService getUserService() {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		// TODO Auto-generated method stub
-		System.out.println("authRealm>>>>>>开始认证>>>>>>>>>");
+//		System.out.println("authRealm>>>>>>开始认证>>>>>>>>>");
 		String userName = (String) token.getPrincipal();
 		String password = new String((char[]) token.getCredentials());
 		Subject subject = SecurityUtils.getSubject();

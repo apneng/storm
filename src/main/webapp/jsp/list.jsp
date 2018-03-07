@@ -1,26 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="taglib.jsp"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta charset="UTF-8">
 <title>雇员管理页面</title>
 <link rel="stylesheet" type="text/css"
-	href="${ctx }/jquery-easyui-1.5.3/themes/default/easyui.css">
+	href="jquery-easyui-1.5.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css"
-	href="${ctx }/jquery-easyui-1.5.3/themes/icon.css">
+	href="jquery-easyui-1.5.3/themes/icon.css">
 <link rel="stylesheet" type="text/css"
-	href="${ctx }/jquery-easyui-1.5.3/demo/demo.css">
+	href="jquery-easyui-1.5.3/demo/demo.css">
 <script type="text/javascript"
-	src="${ctx }/jquery-easyui-1.5.3/jquery.min.js"></script>
+	src="jquery-easyui-1.5.3/jquery.min.js"></script>
 <script type="text/javascript"
-	src="${ctx }/jquery-easyui-1.5.3/jquery.easyui.min.js"></script>
+	src="jquery-easyui-1.5.3/jquery.easyui.min.js"></script>
 	
 <%-- <script type="text/javascript"
-	src="${ctx }/jsp/js/jquery-1.8.1.min.js"></script> --%>
+	src="jsp/js/jquery-1.8.1.min.js"></script> --%>
 <script type="text/javascript"
-	src="${ctx }/jsp/list.js"></script>
+	src="jsp/list.js"></script>
 	
 </head>
 <body>

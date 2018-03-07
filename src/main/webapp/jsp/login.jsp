@@ -19,8 +19,8 @@
 <body>
 <div style="width: 700px;height: 400px;align:center;">
 	<div align="center">
-		<p>用户名：<input id = "userName" name = "userName" /></p>
-		<p>密码：<input id = "password" name = "password"  /></p>
+		<p>用户名：<input id = "userName" type = "text" name = "userName" /></p>
+		<p>密码：<input id = "password" type = "password" name = "password"  /></p>
 		<p><input type = "checkbox" id = "rememberMe" name = "rememberMe" checked = "checked"/>记住我</p>
 		<p><input type = "button" id = "btn_submit" value = "登陆" />&nbsp;&nbsp;&nbsp;<input type = "button" id ="btn_reset" value = "重置"/></p>
 	</div>
