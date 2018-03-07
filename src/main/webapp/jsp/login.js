@@ -24,6 +24,7 @@ $(document).ready(function() {
 		} else {
 			htmlobj = $.ajax({
 				url : "userCtrl/checkLogin.do",
+				type : 'post',
 				 data :{
 					userName : userName,
 					password : password,
@@ -47,6 +48,6 @@ $(document).ready(function() {
 	});
 	//按键
 	$("#btn_anjian").click(function() {
-		alert("点击了一下");
+		alert("[按键]被点击了一下");
 	});
 });
