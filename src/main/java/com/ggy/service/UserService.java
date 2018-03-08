@@ -19,4 +19,9 @@ public class UserService {
 	public User findUserByName(String userName){
 		return this.userMapper.findUserByName(userName);
 	}
+//删除用户
+	public int deleteByPrimaryKey(String id) {
+		// TODO Auto-generated method stub
+		return this.userMapper.deleteByPrimaryKey(id);
+	}
 }

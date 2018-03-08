@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ggy.Model.BaseResultModel;
 import com.ggy.Model.DataModel;
 import com.ggy.pojo.User;
+import com.ggy.service.EmpService;
 import com.ggy.service.UserService;
 import com.ggy.util.MD5;
 import com.ggy.util.SysCode;
@@ -85,10 +86,12 @@ public class UserCtrl {
 		return this.userServices.signUp(user);
 		
 	}
+
+//	测试
 	@RequestMapping("ddd")
 	public String aa(@Param("yonghu") String yonghu){
 		System.out.println(yonghu);
-		return "list";
+		return "404";
 		
 	}
 

@@ -18,5 +18,18 @@ public class EmpService {
 		return this.empMapper.showEmps();
 		
 	}
+//删除职员
+	public int deleteByPrimaryKey(String empid) {
+		// TODO Auto-generated method stub
+		return this.empMapper.deleteByEmpId(empid);
+	}
+	public int addEmp(Emp emp) {
+		// TODO Auto-generated method stub
+		return empMapper.addEmp(emp);
+	}
+	public Emp getEmpByEmpid(int empid) {
+		// TODO Auto-generated method stub
+		return empMapper.getEmpByEmpid(empid);
+	}
 
 }
