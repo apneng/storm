@@ -59,7 +59,7 @@ public class User {
      *
      * @mbggenerated Mon Mar 05 14:56:59 GMT+08:00 2018
      */
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date regtime;
 
     /**

@@ -2,8 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,16 +17,14 @@
 	href="jquery-easyui-1.5.3/themes/icon.css">
 <link rel="stylesheet" type="text/css"
 	href="jquery-easyui-1.5.3/demo/demo.css">
-<script type="text/javascript"
-	src="jquery-easyui-1.5.3/jquery.min.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.5.3/jquery.min.js"></script>
 <script type="text/javascript"
 	src="jquery-easyui-1.5.3/jquery.easyui.min.js"></script>
-	
+
 <%-- <script type="text/javascript"
 	src="jsp/js/jquery-1.8.1.min.js"></script> --%>
-<script type="text/javascript"
-	src="jsp/list.js"></script>
-	
+<script type="text/javascript" src="jsp/list.js"></script>
+
 </head>
 <body>
 	<h2>雇员管理页</h2>
@@ -49,19 +46,19 @@
 
 	<div style="margin: 0 0;"></div>
 
+	<h4>欢迎你，${loginUser.username}</h4>
+	<table id="grid">
 
-     	<table id = "grid">
+	</table>
 
-		</table>
-		
 	<shiro:hasPermission name="ALU:ALUMNI:MOD">
 		<div id="mod"></div>
 	</shiro:hasPermission>
-	
+
 	<shiro:hasPermission name="ALU:ALUMNI:DEL">
 		<div id="del"></div>
 	</shiro:hasPermission>
-	
+
 
 </body>
 </html>

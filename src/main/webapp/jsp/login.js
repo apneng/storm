@@ -32,7 +32,27 @@ $(document).ready(function() {
 				},
 //				dataType : "json",
 				success : function(data){
-					$("#resultArea").html(htmlobj.responseText);
+//					$("#resultArea").html(htmlobj.responseText);
+
+					if (data && data.rtnCode == 0)
+					{
+						var url = "jsp/list.jsp";
+//						if (data.data.userFlag == '3')
+//						{
+//							url = "jsp/indexForInd.jsp";
+//						}
+						window.location.href = url;
+					}
+					else
+					{
+						$$.ui.Alert(
+						{
+							title : $.tips.TITLE_TIP,
+							html : data.rtnMsg
+						});
+						mask.unmask();
+					}
+				
 				},
 				error : function(XMLHttpRequest, textStatus, errorThrown) {
 					$("#resultArea").html(textStatus);
