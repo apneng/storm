@@ -17,7 +17,7 @@
 		<sqlMapGenerator targetPackage="com.ggy.dao"	targetProject="src/main/java" />
 		<javaClientGenerator targetPackage="com.ggy.dao"	targetProject="src/main/java" type="XMLMAPPER"/>
 		<!-- 数据库表名 及生成类名定义 -->
-		<table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"
+		<table tableName="dept" domainObjectName="Dept" enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" >
 		    <property name="useActualColumnNames" value="false"/>
 		</table>

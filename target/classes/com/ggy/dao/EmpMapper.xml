@@ -9,21 +9,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="egender" property="egender" />
 		<result column="eage" property="eage" />
 		<result column="ephone" property="ephone" />
-		
+		<result column="deptid" property="deptid" />
+		<result column="dname" property="dname"/>
 	</resultMap>
 
 	<!-- 获取所有雇员 -->
 	<select id="showEmps" resultType="java.util.Map">
 		select 
-		e.empid,e.ename,e.egender,e.eage,e.ephone, 
+		e.empid,e.ename,e.egender,e.eage,e.ephone,e.deptid,
 		(SELECT DNAME FROM DEPT WHERE DEPTID = e.deptid) dname from  emp e 
 	
 	</select>
 	<select id="getEmpByEmpid" resultType="com.ggy.pojo.Emp">
 		select 
-		e.empid,e.ename,e.egender,e.eage,e.ephone, 
+		e.empid,e.ename,e.egender,e.eage,e.ephone,e.deptid,
 		(SELECT DNAME FROM DEPT WHERE DEPTID = e.deptid) dname from  emp e 
-	where empid = #{empid,jdbcType=VARCHAR}
+	where empid = #{empid,jdbcType=INTEGER}
 	</select>
 	  <delete id="deleteByEmpId" parameterType="java.lang.String">
  

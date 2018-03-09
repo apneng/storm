@@ -1,4 +1,14 @@
 $(document).ready(function() {
+	
+//	部门选项
+	$('#dept').combobox({
+	    url:'deptCtrl/showDept.do',
+	    valueField:'dname',
+	    textField:'dname',
+	    
+	});
+	
+	
 	  $('#grid').datagrid({
 		 title: '用户列表',
          width: 900,
@@ -73,14 +83,6 @@ $(document).ready(function() {
 						var e = '<a href="javascript:void(0)" id = "'+row.empid+'" name="mod" class="easyui-linkbutton" ></a>'
 						var d =	'<a href="javascript:void(0)" id = "'+row.empid+'" name="del" class="easyui-linkbutton" ></a>'; 
 						
-//						if($('#mod').length == 0){
-//							   e = '';
-//						    }
-//						    
-//						    if($('#del').length == 0){
-//								   d = '';
-//							}
-						
 						return  e + d; 
 						},
 				
@@ -113,44 +115,25 @@ $(document).ready(function() {
 			        			empid : id
 			        		},
 			        		success : function(data){
-			        			debugger;
 			        			$("#empid").val(data.empid);
 			        			$("#ename").val(data.ename);
 			        			$("#eage").val(data.eage);
+			        			
+			        			$("input[name='egender']").each(function(){
+//			        				alert($(this).val());
+			        				if($(this).val()==data.egender){
+			        					$(this).attr("checked","checked");
+			        				}
+			        				
+			        			});
 			        			$("#ephone").val(data.ephone);
+			        			$("#dept").val(data.deptid);
 			        			$('#mod-window').window('open');
 			        		},
 			        		error : function(XMLHttpRequest, textStatus, errorThrown){
 			        			alert(textStatus);
 			        		}
 			        	});
-			        
-//			        	var $win = $('#mod-window').window({
-//			    		    title: '这是编辑窗口',
-//			    		    width: 600,
-//			    		    height: 450,
-//			    		    $.ajax({
-//			    				url : "userCtrl/checkLogin.do",
-//			    				type : 'post',
-//			    				 data :{
-//			    					empid : id
-//			    				},
-//			    				success : function(data){
-//			    					
-//			    				},
-//			    				error : function(XMLHttpRequest, textStatus, errorThrown) {
-//			    					$("#resultArea").html(textStatus);
-//			    				}
-//			    			});
-//			    		    params : {
-//								id : id,
-//								callback : function(){
-//									$("#grid").datagrid("reload");
-//									$win.window('close');
-//								}
-////							}
-//			    		});
-//			        	$win.window('open');
 			        });
 			        //删除操作
 			        $("A[oper='del']").unbind("click");

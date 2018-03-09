@@ -64,8 +64,8 @@
 				姓名:<input type="text" name="ename" id = "ename" />
 			</p>
 			<p>
-				性别:<input type="radio" name="egender" id = "egender" value="1" checked /> 男 <input
-					type="radio" name="egender" value="0" />女
+				性别:<input type="radio" name="egender" id = "egender" value="1" /> 男 <input
+					type="radio" name="egender" id = "egender" value="0" />女
 			</p>
 			<p>
 				年龄:<input type="text" name="eage" id = "eage"  />
@@ -74,19 +74,14 @@
 				电话:<input type="text" name="ephone" id = "ephone" />
 			</p>
 			<p>
-				部门:<select name="deptid">
-					<option ></option>
-				</select>
+				部门:
+				<input id="dept" class="easyui-combobox" style="width:100px" />
 			</p>
 			<p>
 				<input type="submit" value="修改" />
 				<input type="button" value="取消" onclick="history.go(-1)"/>
 		</form>
     </div>
-<!--     <div style="padding: 5px; text-align: center;">
-        <a href="#" class="easyui-linkbutton" icon="icon-ok">Ok</a> <a href="#" class="easyui-linkbutton"
-            icon="icon-cancel">Cancel</a>
-    </div> -->
 </div>
 <!--编辑窗口结束  -->
 	<shiro:hasPermission name="USER:MOD">

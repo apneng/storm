@@ -8,14 +8,14 @@ import java.io.Serializable;
  * @author apneng 2017年10月26日上午9:53:41
  *
  */
-public class Emp implements Serializable {
+public class Emp extends Dept implements Serializable {
 	
 	private Integer empid;
 	private String ename;
 	private Integer egender;
 	private Integer eage;
 	private String ephone;
-	private Integer deptid;
+
 
 	public Integer getEmpid() {
 		return empid;
@@ -62,23 +62,9 @@ public class Emp implements Serializable {
 		this.ename = ename;
 		this.egender = egender;
 		this.ephone = ephone;
-		this.deptid = deptid;
 	}
 	
 
-	public Integer getDeptid() {
-		return deptid;
-	}
-
-	public void setDeptid(Integer deptid) {
-		this.deptid = deptid;
-	}
-
-	@Override
-	public String toString() {
-		return "Emp [empid=" + empid + ", ename=" + ename + ", egender=" + egender + ", eage=" + eage + ", ephone="
-				+ ephone + ", deptid=" + deptid + "]";
-	}
 
 	public Emp() {
 	}
@@ -90,7 +76,6 @@ public class Emp implements Serializable {
 		this.egender = egender;
 		this.eage = eage;
 		this.ephone = ephone;
-		this.deptid = deptid;
 	}
 
 }
