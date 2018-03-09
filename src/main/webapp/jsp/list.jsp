@@ -52,8 +52,9 @@
 
 	</table>
 	<!-- 编辑窗口 -->
-<div id="mod-window" >
-    <div>
+<div id="mod-window"  class="easyui-window" title="这是编辑窗口" style="width:600px;height:450px"
+    data-options="iconCls:'icon-save',modal:true,closed:true" >
+    <div style="align:center">
         <form action="done" method="post">
 			<p>
 				雇员编号：<input type="text" name="empid" id = "empid"

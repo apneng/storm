@@ -28,9 +28,9 @@ public class EmpCtrl {
 	@RequestMapping("/showEmps")
 	public String showEmps(){
 		List<Map<String, String>> list = this.empService.showEmps();
-		System.out.println(list.get(0).get("dname"));
+//		System.out.println(list.get(0).get("dname"));
 		String json = JSON.toJSONString(list);
-		System.out.println(json);
+//		System.out.println(json);
 		return json;
 	}
 //	删除职员

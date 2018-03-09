@@ -106,33 +106,51 @@ $(document).ready(function() {
 			        $("A[oper='mod']").unbind("click");
 			        $("a[name='mod']") .bind('click', function(){
 			        	var id = $(this).attr("id");
+			        	$.ajax({
+			        		url :"empCtrl/getEmpByEmpid.do",
+			        		type : 'post',
+			        		data :{
+			        			empid : id
+			        		},
+			        		success : function(data){
+			        			debugger;
+			        			$("#empid").val(data.empid);
+			        			$("#ename").val(data.ename);
+			        			$("#eage").val(data.eage);
+			        			$("#ephone").val(data.ephone);
+			        			$('#mod-window').window('open');
+			        		},
+			        		error : function(XMLHttpRequest, textStatus, errorThrown){
+			        			alert(textStatus);
+			        		}
+			        	});
 			        
-			        	var $win = $('#mod-window').window({
-			    		    title: '这是编辑窗口',
-			    		    width: 600,
-			    		    height: 450,
-			    		    $.ajax({
-			    				url : "userCtrl/checkLogin.do",
-			    				type : 'post',
-			    				 data :{
-			    					empid : id
-			    				},
-			    				success : function(data){
-			    					
-			    				},
-			    				error : function(XMLHttpRequest, textStatus, errorThrown) {
-			    					$("#resultArea").html(textStatus);
-			    				}
-			    			});
+//			        	var $win = $('#mod-window').window({
+//			    		    title: '这是编辑窗口',
+//			    		    width: 600,
+//			    		    height: 450,
+//			    		    $.ajax({
+//			    				url : "userCtrl/checkLogin.do",
+//			    				type : 'post',
+//			    				 data :{
+//			    					empid : id
+//			    				},
+//			    				success : function(data){
+//			    					
+//			    				},
+//			    				error : function(XMLHttpRequest, textStatus, errorThrown) {
+//			    					$("#resultArea").html(textStatus);
+//			    				}
+//			    			});
 //			    		    params : {
 //								id : id,
 //								callback : function(){
 //									$("#grid").datagrid("reload");
 //									$win.window('close');
 //								}
-//							}
-			    		});
-			        	$win.window('open');
+////							}
+//			    		});
+//			        	$win.window('open');
 			        });
 			        //删除操作
 			        $("A[oper='del']").unbind("click");
