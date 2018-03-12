@@ -45,12 +45,7 @@ $(document).ready(function() {
 					}
 					else
 					{
-						$$.ui.Alert(
-						{
-							title : $.tips.TITLE_TIP,
-							html : data.rtnMsg
-						});
-						mask.unmask();
+						alert("错误");
 					}
 				
 				},
