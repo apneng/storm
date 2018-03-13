@@ -31,19 +31,16 @@
 	<h2>雇员管理页</h2>
 
 
-	<div style="margin-bottom: 20px">
+<!-- 	<div style="margin-bottom: 20px">
 		<form action="search" method="post">
 			<input type="text" name="search" id="search" /> <input type="submit"
 				value="查找">
 		</form>
-	</div>
-	<div>
-		<a class="easyui-linkbutton" href="empCtrl/showEmps.do">所有雇员</a>
-	</div>
-	<div style="margin: 20px 0;">
+	</div> -->
+	<!-- <div style="margin: 20px 0;">
 		<a href="javascript:void(0)" class="easyui-linkbutton"
 			onclick="$('#w').window('open')">添加雇员</a>
-	</div>
+	</div> -->
 
 	<div style="margin: 0 0;"></div>
 
@@ -52,7 +49,7 @@
 
 	</table>
 	<!-- 编辑窗口 -->
-<div id="mod-window"  class="easyui-window" title="这是编辑窗口" style="width:600px;height:450px"
+<div id="mod-window"  class="easyui-window" title="这是编辑窗口" style="width:450px;height:300px"
     data-options="iconCls:'icon-save',modal:true,closed:true" >
     <div style="align:center">
         <form action="empCtrl/updateEmp.do" method="post" id = "updateForm">
@@ -75,11 +72,14 @@
 			</p>
 			<p>
 				部门:
-				<input id="dept" class="easyui-combobox" style="width:100px" />
+				<!-- <input id="dept" class="easyui-combobox" style="width:100px" /> -->
+				<input id="deptid" name="deptid" class="easyui-combobox " />
+				<!-- <input id="deptid" name="deptid" value = 1 type="hidden">  -->
+				
 			</p>
 			<p>
-				<input type="button" id = "btn_set" value="修改" />
-				<input type="button" value="取消" onclick="history.go(-1)"/>
+				<input type="submit"  value="修改" />
+				<input type="button" value="取消" id = "cel"/>
 		</form>
     </div>
 </div>

@@ -1,14 +1,12 @@
 $(document).ready(function() {
-	
-//	部门选项
-	$('#dept').combobox({
-	    url:'deptCtrl/showDept.do',
-	    valueField:'dname',
-	    textField:'dname',
-	    
-	});
-	
-	
+//	部门
+//	$('#deptid').combobox({
+//	    url:'deptCtrl/showDept.do',
+//	    valueField:'deptid',
+//	    textField:'dname'
+//	    
+//	});
+
 	  $('#grid').datagrid({
 		 title: '用户列表',
          width: 900,
@@ -127,7 +125,15 @@ $(document).ready(function() {
 			        				
 			        			});
 			        			$("#ephone").val(data.ephone);
-			        			$("#dept").val(data.deptid);
+			        			$("#deptid").val(data.deptid);
+			        			
+			        			$('#deptid').combobox({
+			        			    url:'deptCtrl/showDept.do',
+			        			    valueField:'deptid', //真实值
+			        			    textField:'dname', //显示
+			        			    value :data.deptid //默认选中当前值
+			        			    
+			        			});
 			        			$('#mod-window').window('open');
 			        		},
 			        		error : function(XMLHttpRequest, textStatus, errorThrown){
@@ -170,7 +176,32 @@ $(document).ready(function() {
 				
 			
 	});
-//	  修改
-	  $("#updateForm").click(function() {});
-
-}); 
+//	  修改结果校验
+		    $("#updateForm").form({
+		    	 success:function(data){ 
+//		    		 alert(data);
+		    		 alert("修改成功");
+		    		 $('#mod-window').window('close');
+		    		 $("#grid").datagrid("reload");
+		    	 },
+		    	 fail : function(data){
+		    		 alert("修改失败");
+		    		 $('#mod-window').window('close');
+		    		 $("#grid").datagrid("reload");
+		    	 },
+		    	 error : function(XMLHttpRequest,
+							textStatus,
+							errorThrown){
+		    		 alert("修改失败，数据错误");
+		    		 $('#mod-window').window('close');
+						$("#grid").datagrid("reload");
+		    	 }
+		    	
+		    	
+		    });      
+//取消按键
+		    $("#cel").click(function(){
+		    	 $('#mod-window').window('close');
+//	    		 $("#grid").datagrid("reload");
+		    });
+})
