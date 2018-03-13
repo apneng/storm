@@ -55,4 +55,6 @@ public interface DeptMapper {
     int updateByPrimaryKey(Dept record);
 //展示所有部门
 	List<Map<String, String>> showDept();
+//根据部门名称获取部门id
+	int getDeptIdByDname(String dname);
 }

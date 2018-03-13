@@ -31,5 +31,10 @@ public class EmpService {
 		// TODO Auto-generated method stub
 		return empMapper.getEmpByEmpid(empid);
 	}
+//	修改职员信息
+	public int updateEmp(Emp emp) {
+		// TODO Auto-generated method stub
+		return empMapper.updateEmp(emp);
+	}
 
 }

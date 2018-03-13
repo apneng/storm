@@ -55,7 +55,7 @@
 <div id="mod-window"  class="easyui-window" title="这是编辑窗口" style="width:600px;height:450px"
     data-options="iconCls:'icon-save',modal:true,closed:true" >
     <div style="align:center">
-        <form action="done" method="post">
+        <form action="empCtrl/updateEmp.do" method="post" id = "updateForm">
 			<p>
 				雇员编号：<input type="text" name="empid" id = "empid"
 					readonly="readonly" />
@@ -78,7 +78,7 @@
 				<input id="dept" class="easyui-combobox" style="width:100px" />
 			</p>
 			<p>
-				<input type="submit" value="修改" />
+				<input type="button" id = "btn_set" value="修改" />
 				<input type="button" value="取消" onclick="history.go(-1)"/>
 		</form>
     </div>

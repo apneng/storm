@@ -44,4 +44,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       #{eage,jdbcType=INTEGER}, #{ephone,jdbcType=VARCHAR}, #{deptid,jdbcType=INTEGER} )
       
   </insert>
+  <!-- 修改职员信息 -->
+    <update id="updateEmp" parameterType="com.ggy.pojo.Emp" >
+   
+    update emp
+    set 
+    	ename = #{ename,jdbcType=VARCHAR},
+    	egender = #{egender,jdbcType=INTEGER},
+    	eage = #{eage,jdbcType=INTEGER},
+    	ephone = #{ephone,jdbcType=VARCHAR},
+    	deptid = #{deptid,jdbcType=VARCHAR}
+    where empid = #{empid,jdbcType=INTEGER}
+  </update>
 </mapper>  

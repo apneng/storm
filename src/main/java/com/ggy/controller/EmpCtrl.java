@@ -77,4 +77,37 @@ public class EmpCtrl {
 	public Emp getEmpByEmpid(int empid){
 		return this.empService.getEmpByEmpid(empid);
 	}
+//	修改职员信息
+	@ResponseBody
+	@RequestMapping("updateEmp")
+	public BaseResultModel updateEmp(Emp emp){
+		BaseResultModel model = new BaseResultModel();
+		try
+		{
+			int count = this.empService.updateEmp(emp);
+			
+			if (count > 0)
+			{
+				model.setRtnCode(SysCode.RTN_CODE_SUCCESS);
+				model.setRtnMsg("修改成功");
+		
+			}
+
+			if (count <= 0)
+			{
+				model.setRtnCode(SysCode.RTN_CODE_FAIL);
+				model.setRtnMsg("修改失败");
+			}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+			model.setRtnCode(SysCode.RTN_CODE_FAIL);
+			model.setRtnMsg("修改错误");
+		}
+		
+		return model;
+		
+		
+	}
 }

@@ -169,6 +169,8 @@ $(document).ready(function() {
 				
 				
 			
-	})
+	});
+//	  修改
+	  $("#updateForm").click(function() {});
 
 }); 

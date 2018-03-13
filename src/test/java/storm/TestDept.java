@@ -17,5 +17,10 @@ public class TestDept {
 	public void showDept(){
 		System.out.println(this.deptCtrl.showDept());
 	}
-
+	@Test
+	public void getDeptid(){
+		System.out.println(this.deptCtrl.getDeptIdByDname("人事部"));
+		System.out.println(this.deptCtrl.getDeptIdByDname("开发部"));
+		System.out.println(this.deptCtrl.getDeptIdByDname("研发部"));
+	}
 }

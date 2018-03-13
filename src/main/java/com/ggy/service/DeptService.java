@@ -18,4 +18,9 @@ public class DeptService {
 		return this.deptMapper.showDept();
 	}
 
+	public int getDeptIdByDname(String dname) {
+		// TODO Auto-generated method stub
+		return this.deptMapper.getDeptIdByDname(dname);
+	}
+
 }

@@ -28,5 +28,7 @@ public interface EmpMapper {
 	public int addEmp(Emp emp);
 
 	public Emp getEmpByEmpid(int empid);
+	//修改职员信息
+	public int updateEmp(Emp emp);
 
 }

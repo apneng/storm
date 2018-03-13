@@ -101,4 +101,11 @@
     <include refid="Base_Column_List" />
     from dept
   </select>
+  
+   <select id="getDeptIdByDname" resultType="java.lang.Integer" parameterType="java.lang.String" >
+    select 
+   deptid
+    from dept
+    where dname = #{dname,jdbcType=VARCHAR}
+  </select>
 </mapper>

@@ -23,4 +23,11 @@ public class DeptCtrl {
 		String json = JSON.toJSONString(list);
 		return json;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/getDeptIdByDname")
+	public int getDeptIdByDname(String dname){
+		return this.deptService.getDeptIdByDname(dname);
+		
+	}
 }
