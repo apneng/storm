@@ -56,6 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	deptid = #{deptid,jdbcType=VARCHAR}
     where empid = #{empid,jdbcType=INTEGER}
   </update>
+  <!-- 获取emp表的记录数，用于total -->
   <select id="getCountEmp" resultType="java.lang.Integer">
 		select count(*) from emp
 	</select>
