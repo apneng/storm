@@ -1,9 +1,7 @@
 package com.ggy.controller;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,9 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.ggy.Model.BaseResultModel;
 import com.ggy.pojo.Emp;
-import com.ggy.pojo.User;
 import com.ggy.service.EmpService;
-import com.ggy.util.MD5;
+import com.ggy.util.Grid;
 import com.ggy.util.SysCode;
 
 @Controller
@@ -26,12 +23,18 @@ public class EmpCtrl {
 	
 	@ResponseBody
 	@RequestMapping("/showEmps")
-	public String showEmps(){
-		List<Map<String, String>> list = this.empService.showEmps();
-//		System.out.println(list.get(0).get("dname"));
-		String json = JSON.toJSONString(list);
-//		System.out.println(json);
-		return json;
+	public Grid showEmps(int page,int rows){
+		//获取全部数据
+		int a = (page-1)*rows;
+		List<Map<String, String>> list = this.empService.showEmps(a,rows);
+		int total = this.empService.getCountEmp();
+		Grid grid = new Grid();
+		grid.setRows(list);
+		grid.setTotal((long) total);//获取total数
+//		String json = JSON.toJSONString(list);
+		
+		System.out.println(grid.toString());
+		return grid;
 	}
 //	删除职员
 	@ResponseBody

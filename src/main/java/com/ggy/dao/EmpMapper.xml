@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select 
 		e.empid,e.ename,e.egender,e.eage,e.ephone,e.deptid,
 		(SELECT DNAME FROM DEPT WHERE DEPTID = e.deptid) dname from  emp e 
-	
+	limit  #{page,jdbcType=INTEGER},#{rows,jdbcType=INTEGER}
 	</select>
 	<select id="getEmpByEmpid" resultType="com.ggy.pojo.Emp">
 		select 
@@ -56,4 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	deptid = #{deptid,jdbcType=VARCHAR}
     where empid = #{empid,jdbcType=INTEGER}
   </update>
+  <select id="getCountEmp" resultType="java.lang.Integer">
+		select count(*) from emp
+	</select>
 </mapper>  

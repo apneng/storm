@@ -14,8 +14,8 @@ public class EmpService {
 	@Autowired
 	private EmpMapper empMapper;
 	
-	public List<Map<String, String>> showEmps(){
-		return this.empMapper.showEmps();
+	public List<Map<String, String>> showEmps(int page, int rows){
+		return this.empMapper.showEmps(page,rows);
 		
 	}
 //删除职员
@@ -35,6 +35,10 @@ public class EmpService {
 	public int updateEmp(Emp emp) {
 		// TODO Auto-generated method stub
 		return empMapper.updateEmp(emp);
+	}
+	public Integer getCountEmp() {
+		// TODO Auto-generated method stub
+		return empMapper.getCountEmp();
 	}
 
 }

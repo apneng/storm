@@ -35,9 +35,4 @@ public class TestEmp {
 		BaseResultModel count = this.empCtrl.updateEmp(emp);
 		System.out.println(count.getRtnMsg());
 	}
-//	@Test
-//	public void testGetEmpByEmpid(){
-//		int id = 3;
-//		System.out.println(this.empCtrl.getEmpByEmpid(id).getEname());
-//	}
 }

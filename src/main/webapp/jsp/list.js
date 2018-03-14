@@ -10,8 +10,16 @@ $(document).ready(function() {
 	  $('#grid').datagrid({
 		 title: '用户列表',
          width: 900,
-         height: 300,
-        fitColumns: false,
+//         height: 700,
+         
+         rownumbers:true,
+         singleSelect:true,
+         autoRowHeight:false,
+         pagination:true,
+         pageSize:10,
+//         pageNumber:1,
+         showPageList:false,
+
 		url : 'empCtrl/showEmps.do',
 		dom : '#grid',
 		columns : [[
@@ -86,6 +94,7 @@ $(document).ready(function() {
 				
 					
 				}]],
+				
 				//操作
 				onLoadSuccess:function(data){    
 			        $("a[name='mod']").linkbutton({

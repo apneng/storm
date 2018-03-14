@@ -46,7 +46,6 @@
 
 	<h4>欢迎你，${loginUser.username}</h4>
 	<table id="grid">
-
 	</table>
 	<!-- 编辑窗口 -->
 <div id="mod-window"  class="easyui-window" title="这是编辑窗口" style="width:450px;height:300px"

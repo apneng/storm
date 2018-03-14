@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -19,7 +20,7 @@ public interface EmpMapper {
 	 * 
 	 * @return
 	 */
-	public List<Map<String, String>> showEmps();
+	public List<Map<String, String>> showEmps(@Param(value = "page")int page, @Param(value = "rows")int rows);
 
 	// 删除职员
 	public int deleteByEmpId(String empid);
@@ -30,5 +31,7 @@ public interface EmpMapper {
 	public Emp getEmpByEmpid(int empid);
 	//修改职员信息
 	public int updateEmp(Emp emp);
+//获取total数
+	public Integer getCountEmp();
 
 }
