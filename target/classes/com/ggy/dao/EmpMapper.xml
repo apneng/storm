@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select 
 		e.empid,e.ename,e.egender,e.eage,e.ephone,e.deptid,
 		(SELECT DNAME FROM DEPT WHERE DEPTID = e.deptid) dname from  emp e 
-	where empid = #{empid,jdbcType=INTEGER}
+	where empid = #{empid,jdbcType=VARCHAR}
 	</select>
 	  <delete id="deleteByEmpId" parameterType="java.lang.String">
  
@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     insert into emp (empid, ename, egender, 
       eage, ephone, deptid)
     values (#{empid,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, #{egender,jdbcType=INTEGER}, 
-      #{eage,jdbcType=INTEGER}, #{ephone,jdbcType=VARCHAR}, #{deptid,jdbcType=INTEGER} )
+      #{eage,jdbcType=INTEGER}, #{ephone,jdbcType=VARCHAR}, #{deptid,jdbcType=VARCHAR} )
       
   </insert>
   <!-- 修改职员信息 -->
@@ -54,8 +54,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	eage = #{eage,jdbcType=INTEGER},
     	ephone = #{ephone,jdbcType=VARCHAR},
     	deptid = #{deptid,jdbcType=VARCHAR}
-    where empid = #{empid,jdbcType=INTEGER}
+    where empid = #{empid,jdbcType=VARCHAR}
   </update>
+  <!-- 获取emp表的记录数，用于total -->
   <select id="getCountEmp" resultType="java.lang.Integer">
 		select count(*) from emp
 	</select>

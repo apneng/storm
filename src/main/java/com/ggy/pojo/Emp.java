@@ -10,14 +10,14 @@ import java.io.Serializable;
  */
 public class Emp extends Dept implements Serializable {
 	
-	private Integer empid;
+	private String empid;
 	private String ename;
 	private Integer egender;
 	private Integer eage;
 	private String ephone;
 
 
-	public Integer getEmpid() {
+	public String getEmpid() {
 		return empid;
 	}
 
@@ -29,7 +29,7 @@ public class Emp extends Dept implements Serializable {
 		this.eage = eage;
 	}
 
-	public void setEmpid(Integer empid) {
+	public void setEmpid(String empid) {
 		this.empid = empid;
 	}
 
@@ -69,7 +69,7 @@ public class Emp extends Dept implements Serializable {
 	public Emp() {
 	}
 
-	public Emp(Integer empid, String ename, Integer egender, Integer eage, String ephone, Integer deptid) {
+	public Emp(String empid, String ename, Integer egender, Integer eage, String ephone, Integer deptid) {
 	
 		this.empid = empid;
 		this.ename = ename;

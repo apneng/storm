@@ -28,7 +28,7 @@ $(document).ready(function() {
 					field : 'empid',
 					align : "center",
 					width : '100', 
-					hidden : false
+					hidden : true
 				
 				},
 				{
@@ -106,7 +106,6 @@ $(document).ready(function() {
 			        
 			        $("a[name='del']").linkbutton({
 			        	text:'删除',
-			        	href:'jsp/404.jsp',
 			        	plain:true,
 			        	iconCls:'icon-remove'
 			        });    
@@ -135,7 +134,7 @@ $(document).ready(function() {
 			        			});
 			        			$("#ephone").val(data.ephone);
 			        			$("#deptid").val(data.deptid);
-			        			
+			        			//部门下拉框选项
 			        			$('#deptid').combobox({
 			        			    url:'deptCtrl/showDept.do',
 			        			    valueField:'deptid', //真实值
@@ -146,7 +145,8 @@ $(document).ready(function() {
 			        			$('#mod-window').window('open');
 			        		},
 			        		error : function(XMLHttpRequest, textStatus, errorThrown){
-			        			alert(textStatus);
+			        			$.messager.alert('网页信息','操作数据出错!','error');
+//			        			alert(textStatus);
 			        		}
 			        	});
 			        });
@@ -154,31 +154,36 @@ $(document).ready(function() {
 			        $("A[oper='del']").unbind("click");
 			        $("a[name='del']") .bind('click', function(){
 			        	var id = $(this).attr("id");
-			        	$.ajax({
-							type : "POST",
-							url : "empCtrl/deleteByPrimaryKey.do",
-							traditional : true,
-							data : {
-								empid : id
-								
-							},
-							success : function(html) {
-								alert("删除成功")
-//								myGrid.reload();
-								  $("#grid").datagrid("reload");
-							},
-							fail : function(html) {
-								alert("删除失败")
-								$("#grid").datagrid("reload");
-							},
-							error : function(
-									XMLHttpRequest,
-									textStatus,
-									errorThrown) {
-								alert("删除失败，数据错误")
-								$("#grid").datagrid("reload");
-							}
-						});
+			        	$.messager.confirm('确认删除', '确定要删除这条记录吗?', function(r){
+			        		if (r){
+			        			$.ajax({
+									type : "POST",
+									url : "empCtrl/deleteByPrimaryKey.do",
+									traditional : true,
+									data : {
+										empid : id
+										
+									},
+									success : function(html) {
+										$.messager.alert('网页信息','删除成功!','info');
+//										myGrid.reload();
+										  $("#grid").datagrid("reload");
+									},
+									fail : function(html) {
+										$.messager.alert('网页信息','删除失败。。','warning');
+										$("#grid").datagrid("reload");
+									},
+									error : function(
+											XMLHttpRequest,
+											textStatus,
+											errorThrown) {
+										$.messager.alert('网页信息','删除数据出错!','error');
+										$("#grid").datagrid("reload");
+									}
+								});
+			        		}
+			        	});
+			        	
 			        });
 			},  
 				
@@ -189,19 +194,19 @@ $(document).ready(function() {
 		    $("#updateForm").form({
 		    	 success:function(data){ 
 //		    		 alert(data);
-		    		 alert("修改成功");
+		    		 $.messager.alert('网页信息','修改成功!','info');
 		    		 $('#mod-window').window('close');
 		    		 $("#grid").datagrid("reload");
 		    	 },
 		    	 fail : function(data){
-		    		 alert("修改失败");
+		    		 $.messager.alert('网页信息','修改失败!','warning');
 		    		 $('#mod-window').window('close');
 		    		 $("#grid").datagrid("reload");
 		    	 },
 		    	 error : function(XMLHttpRequest,
 							textStatus,
 							errorThrown){
-		    		 alert("修改失败，数据错误");
+		    		 $.messager.alert('网页信息','删除数据出错!','error');
 		    		 $('#mod-window').window('close');
 						$("#grid").datagrid("reload");
 		    	 }
