@@ -21,6 +21,9 @@
 <script type="text/javascript" src="jquery-easyui-1.5.3/jquery.min.js"></script>
 <script type="text/javascript"
 	src="jquery-easyui-1.5.3/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="<%=basePath%>/My97DatePicker/WdatePicker.js"></script><!--绝对路径  -->
+
 
 <%-- <script type="text/javascript"
 	src="jsp/js/jquery-1.8.1.min.js"></script> --%>
@@ -48,12 +51,12 @@
 	<table id="grid">
 	</table>
 	<!-- 编辑窗口 -->
-<div id="mod-window"  class="easyui-window" title="这是编辑窗口" style="width:450px;height:300px"
+<div id="mod-window"  class="easyui-window" title="这是编辑窗口" 
     data-options="iconCls:'icon-save',modal:true,closed:true" >
     <div style="align:center">
         <form action="empCtrl/updateEmp.do" method="post" id = "updateForm">
 			<p>
-				雇员编号：<input type="text" name="empid" id = "empid"
+				雇员代码：<input type="text" name="empid" id = "empid"
 					readonly="readonly" />
 			</p>
 			<p>
@@ -64,7 +67,10 @@
 					type="radio" name="egender" id = "egender" value="0" />女
 			</p>
 			<p>
-				年龄:<input type="text" name="eage" id = "eage"  />
+				出生日期:<input type="text" name="ebirthday" id = "ebirthday" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d'})"/>
+			</p>
+			<p>
+				年龄:<input type="text" name="eage" id = "eage" readonly="readonly" />
 			</p>
 			<p>
 				电话:<input type="text" name="ephone" id = "ephone" />

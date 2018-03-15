@@ -27,7 +27,7 @@ public class EmpService {
 		// TODO Auto-generated method stub
 		return empMapper.addEmp(emp);
 	}
-	public Emp getEmpByEmpid(int empid) {
+	public Emp getEmpByEmpid(String empid) {
 		// TODO Auto-generated method stub
 		return empMapper.getEmpByEmpid(empid);
 	}

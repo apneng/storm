@@ -6,10 +6,10 @@ $(document).ready(function() {
 //	    textField:'dname'
 //	    
 //	});
-
+	
 	  $('#grid').datagrid({
 		 title: '用户列表',
-         width: 900,
+//         width: 900,
 //         height: 700,
          
          rownumbers:true,
@@ -57,11 +57,26 @@ $(document).ready(function() {
 					sortable : false
 				},
 				{
+					title : '出生日期',
+					field : 'ebirthday',
+					width : '150', 
+					align : "left",
+					sortable : false,
+					formatter : function(value, row, index){
+						return transferTime(value);
+					}
+
+				},
+				{
 					title : '年龄',
 					field : 'eage',
 					width : '70', 
 					align : "center",
-					sortable : false
+					sortable : false,
+					formatter : function(value, row, index){
+						var yMd =transferTime(row.ebirthday);
+						return jsGetAge(yMd);
+					}
 
 				},
 				{
@@ -94,7 +109,6 @@ $(document).ready(function() {
 				
 					
 				}]],
-				
 				//操作
 				onLoadSuccess:function(data){    
 			        $("a[name='mod']").linkbutton({
@@ -123,6 +137,9 @@ $(document).ready(function() {
 			        		success : function(data){
 			        			$("#empid").val(data.empid);
 			        			$("#ename").val(data.ename);
+//			        			根据出生日期计算年龄，年龄字段为只读，适用于新增数据时
+//			        			$("#eage").val(jsGetAge(transferTime(data.ebirthday)));
+//			        			直接使用数据库传来的年龄，
 			        			$("#eage").val(data.eage);
 			        			
 			        			$("input[name='egender']").each(function(){
@@ -134,6 +151,9 @@ $(document).ready(function() {
 			        			});
 			        			$("#ephone").val(data.ephone);
 			        			$("#deptid").val(data.deptid);
+			        			$("#ebirthday").val(transferTime(data.ebirthday));
+			        			
+			        			
 			        			//部门下拉框选项
 			        			$('#deptid').combobox({
 			        			    url:'deptCtrl/showDept.do',
@@ -218,4 +238,84 @@ $(document).ready(function() {
 		    	 $('#mod-window').window('close');
 //	    		 $("#grid").datagrid("reload");
 		    });
+		    
+		    
+//时间经json处理后变成int，转换回时间格式
+		    function transferTime(cTime) {
+		    	if(cTime==null){
+		    		return null;
+		    	}else{
+		        //将json串的一串数字进行解析
+		        var jsonDate = new Date(parseInt(cTime));
+//		        alert(jsonDate);
+		        //为Date对象添加一个新属性，主要是将解析到的时间数据转换为我们熟悉的“yyyy-MM-dd”样式
+		        Date.prototype.format = function(format) {
+		        var o = {
+		        //获得解析出来数据的相应信息，可参考js官方文档里面Date对象所具备的方法
+		        "y+" : this.getFullYear(),//得到对应的年信息
+		        "M+" : this.getMonth() + 1, //得到对应的月信息，得到的数字范围是0~11，所以要加一
+		        "d+" : this.getDate(), //得到对应的日信息
+//		        "h+" : this.getHours(), //得到对应的小时信息 
+//		        "m+" : this.getMinutes(), //得到对应的分钟信息
+//		        "s+" : this.getSeconds(), //得到对应的秒信息
+		    }
+		      //将年转换为完整的年形式
+		     if (/(y+)/.test(format)) {
+		    	 format = format.replace(RegExp.$1,(this.getFullYear() + "").substr(4 - RegExp.$1.length));
+		    }
+
+		    //连接得到的年月日 时分秒信息
+		    for ( var k in o) {
+		    	if (new RegExp("(" + k + ")").test(format)) {
+		    		format = format.replace(RegExp.$1,RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+		    	}
+		    }
+		    return format;
+		  }
+		 var newDate = jsonDate.format("yyyy-MM-dd");
+		 return newDate;
+		 }       }
+		    //出生日期时间转化结束
+		    //计算年龄
+		    function jsGetAge(strBirthday){
+		    	if(strBirthday==null){
+		    		return null;
+		    	}else{
+		        var returnAge;  
+		        var strBirthdayArr=strBirthday.split("-");  
+		        var birthYear = strBirthdayArr[0];  
+		        var birthMonth = strBirthdayArr[1];  
+		        var birthDay = strBirthdayArr[2];  
+		        var d = new Date();   
+		        var nowYear = d.getFullYear();  
+		        var nowMonth = d.getMonth() + 1;  
+		        var nowDay = d.getDate();  
+		        if(nowYear == birthYear) {  
+		        	returnAge = 0;//同年 则为0岁  
+		        }else{  
+		        	var ageDiff = nowYear - birthYear ; //年之差  
+		        	if(ageDiff > 0){  
+		        		if(nowMonth == birthMonth){  
+		        			var dayDiff = nowDay - birthDay;//日之差  
+		        			if(dayDiff < 0){  
+		        				returnAge = ageDiff - 1;  
+		        			}else{  
+		        				returnAge = ageDiff ;  
+		        			}  
+		        		}else{  
+		        			var monthDiff = nowMonth - birthMonth;//月之差  
+		        			if(monthDiff < 0){  
+		        				returnAge = ageDiff - 1;  
+		        			}else{  
+		        				returnAge = ageDiff ;  
+		        			}  
+		        		}  
+		        	}else{  
+		        		returnAge = -1;//返回-1 表示出生日期输入错误 晚于今天  
+		        	}  
+		        }  
+		        return returnAge;//返回周岁年龄 
+		    	} 
+		    }
+		    //计算年龄结束
 })

@@ -28,7 +28,7 @@ public interface EmpMapper {
 	// 添加职员
 	public int addEmp(Emp emp);
 
-	public Emp getEmpByEmpid(int empid);
+	public Emp getEmpByEmpid(String empid);
 	//修改职员信息
 	public int updateEmp(Emp emp);
 //获取total数

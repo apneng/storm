@@ -11,18 +11,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="ephone" property="ephone" />
 		<result column="deptid" property="deptid" />
 		<result column="dname" property="dname"/>
+		<result column="ebirthday" jdbcType="DATE" property="ebirthday"/>
+		
 	</resultMap>
 
 	<!-- 获取所有雇员 -->
 	<select id="showEmps" resultType="java.util.Map">
 		select 
-		e.empid,e.ename,e.egender,e.eage,e.ephone,e.deptid,
+		e.empid,e.ename,e.egender,e.eage,e.ephone,e.deptid,e.ebirthday,
 		(SELECT DNAME FROM DEPT WHERE DEPTID = e.deptid) dname from  emp e 
 	limit  #{page,jdbcType=INTEGER},#{rows,jdbcType=INTEGER}
 	</select>
 	<select id="getEmpByEmpid" resultType="com.ggy.pojo.Emp">
 		select 
-		e.empid,e.ename,e.egender,e.eage,e.ephone,e.deptid,
+		e.empid,e.ename,e.egender,e.eage,e.ephone,e.deptid,e.ebirthday,
 		(SELECT DNAME FROM DEPT WHERE DEPTID = e.deptid) dname from  emp e 
 	where empid = #{empid,jdbcType=VARCHAR}
 	</select>
@@ -39,9 +41,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       This element was generated on Mon Mar 05 14:56:59 GMT+08:00 2018.
     -->
     insert into emp (empid, ename, egender, 
-      eage, ephone, deptid)
+      eage, ephone, deptid,ebirthday)
     values (#{empid,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, #{egender,jdbcType=INTEGER}, 
-      #{eage,jdbcType=INTEGER}, #{ephone,jdbcType=VARCHAR}, #{deptid,jdbcType=VARCHAR} )
+      #{eage,jdbcType=INTEGER}, #{ephone,jdbcType=VARCHAR}, #{deptid,jdbcType=VARCHAR},#{ebirthday} )
       
   </insert>
   <!-- 修改职员信息 -->
@@ -53,7 +55,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	egender = #{egender,jdbcType=INTEGER},
     	eage = #{eage,jdbcType=INTEGER},
     	ephone = #{ephone,jdbcType=VARCHAR},
-    	deptid = #{deptid,jdbcType=VARCHAR}
+    	deptid = #{deptid,jdbcType=VARCHAR},
+    	ebirthday = #{ebirthday}
     where empid = #{empid,jdbcType=VARCHAR}
   </update>
   <!-- 获取emp表的记录数，用于total -->

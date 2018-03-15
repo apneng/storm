@@ -1,6 +1,8 @@
 package com.ggy.pojo;
 
-import java.io.Serializable;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 职员类
@@ -8,14 +10,24 @@ import java.io.Serializable;
  * @author apneng 2017年10月26日上午9:53:41
  *
  */
-public class Emp extends Dept implements Serializable {
+public class Emp extends Dept {
 	
 	private String empid;
 	private String ename;
 	private Integer egender;
+	
 	private Integer eage;
 	private String ephone;
+	private Date ebirthday;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	public Date getEbirthday() {
+		return ebirthday;
+	}
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	public void setEbirthday(Date ebirthday) {
+		this.ebirthday = ebirthday;
+	}
 
 	public String getEmpid() {
 		return empid;

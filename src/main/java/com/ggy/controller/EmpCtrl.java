@@ -103,7 +103,7 @@ public class EmpCtrl {
 //	获取职员信息
 	@ResponseBody
 	@RequestMapping("getEmpByEmpid")
-	public Emp getEmpByEmpid(int empid){
+	public Emp getEmpByEmpid(String empid){
 		return this.empService.getEmpByEmpid(empid);
 	}
 //	修改职员信息
@@ -114,6 +114,7 @@ public class EmpCtrl {
 		try
 		{
 			int count = this.empService.updateEmp(emp);
+			System.out.println(count);
 			
 			if (count > 0)
 			{
