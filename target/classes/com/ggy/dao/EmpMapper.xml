@@ -63,4 +63,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <select id="getCountEmp" resultType="java.lang.Integer">
 		select count(*) from emp
 	</select>
+	<!--不分页，用于导出  -->
+		<select id="showEmpsWithNoPage" resultType="java.util.Map">
+		select 
+		e.empid,e.ename,e.egender,e.eage,e.ephone,e.deptid,e.ebirthday,
+		(SELECT DNAME FROM DEPT WHERE DEPTID = e.deptid) dname from  emp e 
+	</select>
 </mapper>  

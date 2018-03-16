@@ -16,7 +16,7 @@ import com.ggy.pojo.Emp;
 public interface EmpMapper {
 
 	/**
-	 * 获取所有雇员信息
+	 * 获取所有雇员信息 分页输出
 	 * 
 	 * @return
 	 */
@@ -33,5 +33,7 @@ public interface EmpMapper {
 	public int updateEmp(Emp emp);
 //获取total数
 	public Integer getCountEmp();
+//获取所有雇员信息，不分页，用于导出
+	public List<Map<String, String>> showEmpsWithNoPage();
 
 }

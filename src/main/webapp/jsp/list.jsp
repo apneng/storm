@@ -48,6 +48,9 @@
 	<div style="margin: 0 0;"></div>
 
 	<h4>欢迎你，${loginUser.username}</h4>
+	<form action="importCtrl/outport.do">
+	<input type="submit" value = "导出数据" id ="btn_outport"/></form>
+	
 	<table id="grid">
 	</table>
 	<!-- 编辑窗口 -->

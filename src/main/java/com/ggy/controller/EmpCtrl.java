@@ -24,7 +24,7 @@ public class EmpCtrl {
 	@ResponseBody
 	@RequestMapping("/showEmps")
 	public Grid showEmps(int page,int rows){
-		//获取全部数据
+		//获取分页数据
 		int a = (page-1)*rows;
 		List<Map<String, String>> list = this.empService.showEmps(a,rows);
 		int total = this.empService.getCountEmp();
@@ -33,7 +33,18 @@ public class EmpCtrl {
 		grid.setTotal((long) total);//获取total数
 //		String json = JSON.toJSONString(list);
 		
-		System.out.println(grid.toString());
+//		System.out.println(grid.toString());
+		return grid;
+	}
+	@ResponseBody
+	@RequestMapping("/showEmpsWithNoPage")
+	public Grid showEmpsWithNoPage(){
+		//获取全部数据
+		List<Map<String, String>> list = this.empService.showEmpsWithNoPage();
+		int total = this.empService.getCountEmp();
+		Grid grid = new Grid();
+		grid.setRows(list);
+		grid.setTotal((long) total);//获取total数
 		return grid;
 	}
 //	删除职员

@@ -40,5 +40,9 @@ public class EmpService {
 		// TODO Auto-generated method stub
 		return empMapper.getCountEmp();
 	}
+	public List<Map<String, String>> showEmpsWithNoPage() {
+		// TODO Auto-generated method stub
+		return this.empMapper.showEmpsWithNoPage();
+	}
 
 }

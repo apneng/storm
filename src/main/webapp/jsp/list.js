@@ -318,4 +318,10 @@ $(document).ready(function() {
 		    	} 
 		    }
 		    //计算年龄结束
+		    //导出数据
+//		    $("#btn_outport").click(function(){
+//		    	
+//		    });
+		    //导出数据结束
+		    
 })
