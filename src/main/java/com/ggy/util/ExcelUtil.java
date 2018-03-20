@@ -198,7 +198,8 @@ public class ExcelUtil{
         titleStyle.setFont(titleFont);
         // 列头样式
         CellStyle headerStyle = workbook.createCellStyle();
-        headerStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+        //下面备注行，避免生成的表格背景色为黑色
+//        headerStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
         headerStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);
         headerStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);
         headerStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
@@ -210,7 +211,7 @@ public class ExcelUtil{
         headerStyle.setFont(headerFont);
         // 单元格样式
         CellStyle cellStyle = workbook.createCellStyle();
-        cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+//        cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
         cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);
         cellStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);
         cellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
@@ -322,6 +323,7 @@ public class ExcelUtil{
             e.printStackTrace();
         }
     }
+    //以下为示例
     public static void main(String[] args) throws IOException {
         int count = 100000;
         JSONArray ja = new JSONArray();

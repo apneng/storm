@@ -252,7 +252,25 @@
     <artifactId>poi-scratchpad</artifactId>
     <version>3.17</version>
 </dependency> -->
+<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+<dependency>
+    <groupId>dom4j</groupId>
+    <artifactId>dom4j</artifactId>
+    <version>1.6.1</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/xerces/xercesImpl -->
+<!-- <dependency>
+    <groupId>xerces</groupId>
+    <artifactId>xercesImpl</artifactId>
+    <version>2.11.0</version>
+</dependency> -->
 
+<!-- https://mvnrepository.com/artifact/jaxen/jaxen -->
+<dependency>
+    <groupId>jaxen</groupId>
+    <artifactId>jaxen</artifactId>
+    <version>1.1.6</version>
+</dependency>
 
 
 	</dependencies>

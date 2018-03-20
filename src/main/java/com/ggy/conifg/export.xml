@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<sheet table="emp" template="emp" name="职员表" >
+		<rows from="3">
+			<cell name="empid" col="0" />
+			<cell name="ename" col="1" />
+			<cell name="egender" col="2" />
+			<cell name="eage" col="3" />
+			<cell name="ephone" col="4" />
+			<cell name="ebirthday" col="5" />
+			<cell name="dname" col="6" />
+		</rows>
+	</sheet>
+	
+</config>
