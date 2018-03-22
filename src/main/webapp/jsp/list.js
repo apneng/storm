@@ -238,7 +238,10 @@ $(document).ready(function() {
 		    	 $('#mod-window').window('close');
 //	    		 $("#grid").datagrid("reload");
 		    });
-		    
+//		    日程按键
+		    $("#cal").click(function(){
+		    	　window.location.href="jsp/cal.jsp";
+		    });
 		    
 //时间经json处理后变成int，转换回时间格式
 		    function transferTime(cTime) {

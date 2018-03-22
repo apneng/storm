@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * 职员类
  * 
@@ -21,10 +23,12 @@ public class Emp extends Dept {
 	private Date ebirthday;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	public Date getEbirthday() {
 		return ebirthday;
 	}
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	public void setEbirthday(Date ebirthday) {
 		this.ebirthday = ebirthday;
 	}
