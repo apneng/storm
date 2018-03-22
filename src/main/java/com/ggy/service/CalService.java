@@ -1,5 +1,9 @@
 package com.ggy.service;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +36,17 @@ public class CalService {
 	public int update(Cal cal) {
 		// TODO Auto-generated method stub
 		return this.calMapper.updateByPrimaryKey(cal);
+	}
+
+	public List<Date> getCals() {
+		// TODO Auto-generated method stub
+		return this.calMapper.getCals();
+	}
+
+	public List<Map<String, String>> getCalByDate(String startDate) {
+		System.out.println(startDate);
+		// TODO Auto-generated method stub
+		return this.calMapper.getCalByDate(startDate);
 	}
 
 }

@@ -10,7 +10,8 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+<meta charset="UTF-8">
 <title>日程表</title>
 <link rel="stylesheet" type="text/css"
 	href="jquery-easyui-1.5.3/themes/default/easyui.css">
@@ -24,6 +25,8 @@
 	<script type="text/javascript"
 	src="<%=basePath%>/My97DatePicker/WdatePicker.js"></script><!--绝对路径  -->
 <script type="text/javascript" src="jsp/cal.js"></script>
+<!-- <script type="text/javascript"
+	src="jsp/js/jquery-1.8.1.min.js"></script> -->
 </head>
 <body>
 <!-- 日历块 -->
@@ -34,7 +37,7 @@
     <div style="align:center">
         <form action="calCtrl/insertOrUpdate.do" method="post" id = "updateForm">
 			<p>
-				开始时间：<input type="text" name="startDate" id = "startDate" class="Wdate" onClick="WdatePicker({dateFmt:'%y-%M-%d HH:mm:ss'})" />
+				开始时间：<input type="text" name="startDate" id = "startDate" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
 			</p>
 			<p>
 				结束时间:<input type="text" name="endDate" id = "endDate" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
@@ -52,9 +55,18 @@
 				<input type="button"  value="重置" id ="reset" />
 				<input type="button" value="取消" id = "cel"/>
 				<input type = "hidden" id="entWho" name = "entWho" value=${loginUser.id}>
+				<input type = "hidden" id="calid" name = "calid" >
 		</form>
     </div>
 </div>
 <!-- 日程设置弹窗结束 -->
+<div id="info-window"  class="easyui-window" title="查看日程" 
+    data-options="iconCls:'icon-save',modal:true,closed:true,inline:false" >
+    <div style="align:center">
+       <div id = "info" style="width:280px;height:280px">
+       	<ul id = "showCal"></ul>
+       </div>
+    </div>
+</div>
 </body>
 </html>

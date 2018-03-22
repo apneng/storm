@@ -158,4 +158,12 @@
    <select id="isExist" resultType="java.lang.Integer">
 select COUNT(calid) from cal_base where calid= #{calid,jdbcType=VARCHAR}
   </select>
+  
+  <select id="getCals" resultType="java.util.Date">
+select start_date from cal_base
+  </select>
+  
+    <select id="getCalByDate" resultType="java.util.Map">
+select * from cal_base where start_date LIKE CONCAT(#{startDate},'%')
+  </select>
 </mapper>

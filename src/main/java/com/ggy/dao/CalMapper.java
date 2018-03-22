@@ -1,5 +1,9 @@
 package com.ggy.dao;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
 import com.ggy.pojo.Cal;
 
 public interface CalMapper {
@@ -52,4 +56,8 @@ public interface CalMapper {
     int updateByPrimaryKey(Cal record);
 
 	Integer isExist(String calid);
+
+	List<Date> getCals();
+
+	List<Map<String, String>> getCalByDate(String startDate);
 }

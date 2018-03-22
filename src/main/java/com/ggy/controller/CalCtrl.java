@@ -1,8 +1,11 @@
 package com.ggy.controller;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.ggy.Model.BaseResultModel;
 import com.ggy.pojo.Cal;
 import com.ggy.service.CalService;
@@ -63,5 +67,25 @@ public class CalCtrl {
 		}
 		return model;
 	}
-
+	
+	@ResponseBody
+	@RequestMapping("/getCals")
+	public String getCals(){
+		List<Date> list = this.calService.getCals();
+//		for (int i = 0; i < list.size(); i++) {
+//			System.out.println(list.get(i));
+//		}
+		String json = JSON.toJSONString(list);
+//		System.out.println(json);
+		return json;
+	}
+	@ResponseBody
+	@RequestMapping("/getCalByDate")
+	public String getCalByDate(String startDate) {
+		
+		List<Map<String,String>> list = this.calService.getCalByDate(startDate);
+		String json = JSON.toJSONString(list);
+		System.out.println(json);
+		return json;
+	}
 }
