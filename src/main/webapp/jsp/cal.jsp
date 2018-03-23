@@ -37,10 +37,10 @@
     <div style="align:center">
         <form action="calCtrl/insertOrUpdate.do" method="post" id = "updateForm">
 			<p>
-				开始时间：<input type="text" name="startDate" id = "startDate" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+				开始时间：<input type="text" name="startDate" id = "startDate" class="Wdate" onClick="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
 			</p>
 			<p>
-				结束时间:<input type="text" name="endDate" id = "endDate" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+				结束时间:<input type="text" name="endDate" id = "endDate" class="Wdate" onClick="WdatePicker({minDate:'#F{$dp.$D(\'endDate\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
 			</p>
 		
 			<p>
