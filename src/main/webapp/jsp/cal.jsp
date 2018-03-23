@@ -54,6 +54,7 @@
 				<input type="submit"  value="确定" />
 				<input type="button"  value="重置" id ="reset" />
 				<input type="button" value="取消" id = "cel"/>
+				<input type="button" value="删除该日程" id = "delete"/>
 				<input type = "hidden" id="entWho" name = "entWho" value=${loginUser.id}>
 				<input type = "hidden" id="calid" name = "calid" >
 		</form>

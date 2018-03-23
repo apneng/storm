@@ -88,4 +88,15 @@ public class CalCtrl {
 		System.out.println(json);
 		return json;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/getCalByCalid")
+	public Cal getCalByCalid(String calid) {
+		return this.calService.getCalByCalid(calid);
+	}
+	@ResponseBody
+	@RequestMapping("/delCalByCalid")
+	public int delCalByCalid(String calid) {
+		return this.calService.delCalByCalid(calid);
+	}
 }

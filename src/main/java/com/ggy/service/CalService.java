@@ -49,4 +49,14 @@ public class CalService {
 		return this.calMapper.getCalByDate(startDate);
 	}
 
+	public Cal getCalByCalid(String calid) {
+		// TODO Auto-generated method stub
+		return this.calMapper.selectByPrimaryKey(calid);
+	}
+
+	public int delCalByCalid(String calid) {
+		// TODO Auto-generated method stub
+		return this.calMapper.deleteByPrimaryKey(calid);
+	}
+
 }
