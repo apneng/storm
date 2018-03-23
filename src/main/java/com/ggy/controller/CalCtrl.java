@@ -1,8 +1,5 @@
 package com.ggy.controller;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +17,6 @@ import com.ggy.Model.BaseResultModel;
 import com.ggy.pojo.Cal;
 import com.ggy.service.CalService;
 import com.ggy.util.SysCode;
-import com.ggy.util.Time;
 
 @Controller
 @RequestMapping("calCtrl")
@@ -32,7 +28,6 @@ public class CalCtrl {
 	public BaseResultModel insertOrUpdate(Cal cal,HttpServletRequest request){
 		System.out.println(cal.toString());
 		BaseResultModel model = new BaseResultModel();
-		Time ti = new Time();
 		//判断日程是否存在
 		boolean isExist = this.calService.isExist(cal.getCalid());
 		if(isExist){//存在则修改
