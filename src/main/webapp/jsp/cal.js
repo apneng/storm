@@ -117,7 +117,7 @@ $(document).ready(function() {
     });
 	 //添加新日程
 	 $("#addNew").click(function(){
-		 alert("ddddddd");
+//		 alert("ddddddd");
 		 $("#startDate").val("");
 		 $("#endDate").val("");
 		 $("#title").val("");
