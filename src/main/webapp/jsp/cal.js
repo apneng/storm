@@ -115,6 +115,18 @@ $(document).ready(function() {
 		 $("#calDesc").textbox("setValue","");
     	 
     });
+	 //添加新日程
+	 $("#addNew").click(function(){
+		 alert("ddddddd");
+		 $("#startDate").val("");
+		 $("#endDate").val("");
+		 $("#title").val("");
+		 $("#calid").val("");
+		 $("#calDesc").textbox("setValue","");
+		 
+		
+    	 
+    });
 	    $("#updateForm").form({
 	    	 success:function(data){ 
 //	    		 alert(data);

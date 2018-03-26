@@ -83,12 +83,13 @@ public class CalCtrl {
 		System.out.println(json);
 		return json;
 	}
-	
+//	获取单个日程
 	@ResponseBody
 	@RequestMapping("/getCalByCalid")
 	public Cal getCalByCalid(String calid) {
 		return this.calService.getCalByCalid(calid);
 	}
+//	删除
 	@ResponseBody
 	@RequestMapping("/delCalByCalid")
 	public int delCalByCalid(String calid) {
