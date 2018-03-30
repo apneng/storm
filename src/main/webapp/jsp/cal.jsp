@@ -37,14 +37,14 @@
     <div style="align:center">
         <form action="calCtrl/insertOrUpdate.do" method="post" id = "updateForm">
 			<p>
-				开始时间：<input type="text" name="startDate" id = "startDate" class="Wdate" onClick="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+				开始时间：<input type="text" name="startDate" id = "startDate"  required="true" class="Wdate" onClick="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
 			</p>
 			<p>
-				结束时间:<input type="text" name="endDate" id = "endDate" class="Wdate" onClick="WdatePicker({minDate:'#F{$dp.$D(\'endDate\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+				结束时间:<input type="text" name="endDate" id = "endDate" class="Wdate"  required="true" onClick="WdatePicker({minDate:'#F{$dp.$D(\'endDate\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
 			</p>
 		
 			<p>
-				事件标题:<input type="text" name="title" id = "title" />
+				事件标题:<input type="text" name="title"  required="true" id = "title" />
 			</p>
 			<p>
 				简要描述:<input type="text" name="calDesc" id = "calDesc" class="easyui-textbox" data-options="multiline:true"/>

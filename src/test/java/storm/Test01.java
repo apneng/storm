@@ -1,7 +1,5 @@
 package storm;
 
-import org.junit.Test;
-
 public class Test01 {
 /*	应纳个人所得税税额=应纳税所得额×适用税率-速算扣除数
 			扣除标准3500元/月（2011年9月1日起正式执行）（工资、薪金所得适用）
@@ -54,6 +52,10 @@ public class Test01 {
 		System.out.println("应纳税"+suodeshui+"元");
 		System.out.println("实发薪资"+(yuexin-yishebao-suodeshui)+"元");
 		return suodeshui;
+	}
+	
+	public static void pri(String s){
+		System.out.println(s+"t1");
 	}
 
 }
