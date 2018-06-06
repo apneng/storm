@@ -26,7 +26,7 @@ public class Test01 {
 13505
 */
 //	计算应缴纳的个人所得税
-	public double suodeshui(double yuexin,double yishebao){
+	public static double suodeshui(double yuexin,double yishebao){
 		//
 		double suodeshui = 0;
 		double gerensuodeer = yuexin -yishebao-3500 ;
@@ -56,6 +56,11 @@ public class Test01 {
 	
 	public static void pri(String s){
 		System.out.println(s+"t1");
+	}
+	public static void main(String[] args) {
+		double a =4500;
+		double b = 400;
+		suodeshui(a, b);
 	}
 
 }

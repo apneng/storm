@@ -2,6 +2,7 @@ package storm;
 
 import java.util.Random;
 
+
 public class Test04 {
 	static void f(Letter y){
 		y.c = 'z';
@@ -45,7 +46,7 @@ public class Test04 {
 		for (int j = 0; j < d.length-1; j++) {
 			d[j] = j;
 		}
-		d[1000] = 12;
+//		d[1000] =502;
 		int e = 0;
 		for (int j = 0; j < d.length; j++) {
 			e ^= d[j];
@@ -69,5 +70,7 @@ public class Test04 {
 		Test02.pri("");
 		int fina = 10;
 		System.out.println(fina);
+		Test061.te();
+		System.out.println(Test06.adc);
 	}
 }

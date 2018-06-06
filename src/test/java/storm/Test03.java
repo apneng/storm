@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 /**
  * 根据西元的生日时辰获取某个人的生辰八字，以及农历生日
- *@author kongqz 
+ *@author
  * */
 public class Test03 {
    
